@@ -1,0 +1,110 @@
+[
+  {
+    key: 'identifier',
+    name: 'Identifier only',
+    output: `
+      {{ #items }}
+        {{#isFolder}}
+          {{id}}
+        {{/isFolder}}
+        {{^isFolder}}
+          {{sku}}
+        {{/isFolder}}
+      {{/items}}
+    `,
+    selection: 'single',
+    type: 'any'
+  },
+  {
+    key: 'product-list-page',
+    name: 'Product List Page',
+    output: `
+      <table width="100%" style="border: 1px solid black;">
+            <tr>
+                <th colspan="2" style="border: 1px solid black; background: lightgray;">Product List Page</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">category</td>
+                {{ #items }}
+                <td style="border: 1px solid black">{{id}}</td>
+                {{/items}}
+            </tr>
+        </table>
+    `,
+    selection: 'single',
+    type: 'folder'
+  },
+  {
+    key: 'product-teaser',
+    name: 'Product Teaser',
+    output: `
+      <table width="100%" style="border: 1px solid black;">
+            <tr>
+                <th colspan="2" style="border: 1px solid black; background: lightgray;">Product Teaser</th>
+            </tr>
+            {{ #items }}
+            <tr>
+                <td style="border: 1px solid black">SKU</td>
+                <td style="border: 1px solid black">{{ sku }}</td>
+            </tr>
+            {{/items}}
+            <tr>
+                <td style="border: 1px solid black">Details Button</td>
+                <td style="border: 1px solid black">true</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">Cart Button</td>
+                <td style="border: 1px solid black">true</td>
+            </tr>
+        </table>
+    `,
+    selection: 'single',
+    type: 'item'
+  },
+  {
+    key: 'product-carousel',
+    name: 'Product Carousel',
+    output: `
+        <table width="100%" style="border: 1px solid black;">
+            <tr>
+                <th style="border: 1px solid black; background: lightgray;">Product Carousel</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">
+                    <ul>
+                      {{ #items }}
+                        <li>{{sku}}</li>
+                      {{/items}}
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    `,
+    selection: 'multiple',
+    type: 'item'
+  },
+  {
+    key: 'category-carousel',
+    name: 'Category Carousel',
+    output: `
+        <table width="100%" style="border: 1px solid black;">
+            <tr>
+                <th style="border: 1px solid black; background: lightgray;">Category Carousel</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black">
+                    <ul>
+                        {{ #items }}
+                        <li>{{i.id}}</li>
+                        {{/items}}
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    `,
+    selection: 'multiple',
+    type: 'folder'
+  }
+]
+
+
